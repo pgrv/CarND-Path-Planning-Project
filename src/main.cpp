@@ -326,11 +326,11 @@ int main() {
               {
                 carAhead = true;
               }
-              else if (carLane == lane-1 && check_car_s > car_s-10 && (check_car_s-car_s) < 30)
+              else if (carLane == lane-1 && check_car_s > car_s-30 && (check_car_s-car_s) < 30)
               {
                 carLeft = true;
               }
-              else if (carLane == lane+1 && check_car_s > car_s-10 && (check_car_s-car_s) < 30)
+              else if (carLane == lane+1 && check_car_s > car_s-30 && (check_car_s-car_s) < 30)
               {
                 carRight = true;
               }
@@ -390,7 +390,7 @@ int main() {
             double ref_y = car_y;
             double ref_yaw = deg2rad(car_yaw);
 
-            // Use the previous two points to calculate the trajectory
+            // Use the previous points to calculate the trajectory
             if(prev_size < 2)
             {
               double prev_car_x = car_x - cos(car_yaw);

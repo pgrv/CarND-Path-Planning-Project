@@ -1,5 +1,19 @@
 # CarND-Path-Planning-Project
 Self-Driving Car Engineer Nanodegree Program
+
+### Implementation
+[image1]: ./driving.png "Driving"
+In the main.cpp, provided by Udacity, I implement the same elements that are shown in the walkthrough. After that I added the ability that the car could change the lane to the right if it is safe enough.
+
+In the first part of my implementation (line 268 - 382) the sensor datas are fused to get the information if there are cars 30 meters in the front or 30 meters in the back of the ego vehicles lane or on the lanes beside the ego vehicles lane.
+If there is a car in the front the ego vehicle will change the lane (if it is safe) or reduce his speed (if a lane change is not safe).
+If the ego vehicle has already changed the lane it will go back to the center lane (if it is safe) and adjust his speed.
+
+The trajectory is calculated using a spline function (line 386 - 495). Three points at a far distance and the last two points are used to initialize this function. If there are more points than two last points available all the points from the previous path are used to get a smoother trajectory.
+At the end these points are send to the car.
+
+As seen in the following picture the car can drive more than 4.32 miles without accident.
+![Driving][image1]
    
 ### Simulator.
 You can download the Term3 Simulator which contains the Path Planning Project from the [releases tab (https://github.com/udacity/self-driving-car-sim/releases/tag/T3_v1.2).
